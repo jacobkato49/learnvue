@@ -9,22 +9,29 @@
 <body>
 
   <div id="root">
-    <!-- directive is specific to form and control input-->
+    <!-- [v-model] directive is specific to form and control input-->
     <input type="text" id="input" v-model="message">
+
+    <!-- I want to spit out the value in our data model called message -->
+    <p>The value of the input is: {{ message }}.</p>
   </div>
 
-  <script src="https://unpkg.com/vue"></script>">
+  <script src="https://unpkg.com/vue"></script>
 
 
   <script>
-    let data ={
-      message: "Hello World"
-    };
 
+    // Vue instance
     new Vue({
-      // element ID
+
+      // Bind to an element ID in the DOM
       el: '#root',
-      data: data
+
+      // Specify some data (kinda like the model for the view)
+      data: {
+
+        message: "Hello World"
+      }
     })
   </script>
 
