@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+
+  <style media="screen">
+
+    .is-loading { background: red; }
+  </style>
+
+
 </head>
 <body>
 
@@ -23,7 +30,11 @@
     <!--also can use v-on:click-->
     <button @click="addName">Add Name</button>
 
+    <!-- title is the attribute we are binding to-->
+    <!-- : is equivalent to v-bind-->
     <button v-bind:title="title">Make me a title</button>
+
+    <button :class= '{ "is-loading": true }' @click="toggleClass">Click Me</button>
   </div>
 
 
@@ -44,6 +55,8 @@
 
         message: "Hello World",
 
+        className: "color-red",
+
         newName: "",
 
         //list-type
@@ -58,6 +71,11 @@
           //clears the form
           this.newName= "";
         }
+
+        // toggleClass(){
+        //   this.isLoading= true;
+        //
+        // }
 
       }
     })
