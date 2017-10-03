@@ -10,11 +10,22 @@
 
   <div id="root">
     <!-- [v-model] directive is specific to form and control input-->
-    <input type="text" id="input" v-model="message">
+    <!-- <input type="text" id="input" v-model="message"> -->
 
     <!-- I want to spit out the value in our data model called message -->
-    <p>The value of the input is: {{ message }}.</p>
+    <!-- <p>The value of the input is: {{ message }}.</p> -->
+
+      <!-- v-for = list rendering -->
+      <li v-for="name in names">{{ name }}</li>
+
+    <input type="text" id="input" v-model= "newName">
+
+    <!--also can use v-on:click-->
+    <button @click="addName">Add Name</button>
+
+    <button v-bind:title="title">Make me a title</button>
   </div>
+
 
   <script src="https://unpkg.com/vue"></script>
 
@@ -29,8 +40,25 @@
 
       // Specify some data (kinda like the model for the view)
       data: {
+        title: "I am made with javascript",
 
-        message: "Hello World"
+        message: "Hello World",
+
+        newName: "",
+
+        //list-type
+        names: ["James", "Mary", "Joe", "Lee"]
+
+      },
+
+      methods: {
+        addName(){
+          this.names.push(this.newName)
+
+          //clears the form
+          this.newName= "";
+        }
+
       }
     })
   </script>
